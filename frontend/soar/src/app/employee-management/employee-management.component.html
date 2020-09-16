@@ -1,0 +1,33 @@
+
+<div >
+    <h3 style="text-align: center;margin: 10px;color: lightslategray;">Employee Managament</h3>
+    <button routerLink="/employees/-1" class="btn btn-md btn-info pull-right float-right" style="margin-right: 20px; margin-bottom: 5px;" >Add Employee</button>
+  </div>
+  
+  <div class="alert alert-success" *ngIf="message">{{message}}</div>
+  <table class="table" >
+      <thead class=" text-white" style="background-color: lightslategrey;text-align: center;">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col" >Designation</th>        
+          <th scope="col">Password</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees" style="text-align: center;">
+          <td >{{employee.id}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.type}}</td>
+          <td>{{employee.password}}</td>               
+          <td><button class="btn btn-sm btn-primary" (click)="updateEmployee(employee.id)">Update</button></td>       
+          <td><button class="btn btn-sm btn-danger" (click)="deleteEmployee(employee.id)" >Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
