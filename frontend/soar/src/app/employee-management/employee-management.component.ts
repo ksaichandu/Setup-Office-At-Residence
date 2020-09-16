@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeDataService} from 'src/app/data/service/employee-data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 export class employee {
@@ -25,13 +25,18 @@ export class EmployeeManagementComponent implements OnInit {
 
   employees:employee[]
   message:string
+  username:string
+  userid:number
+  emp:employee
  
   constructor(
     private employeeService:EmployeeDataService,
-    private router:Router
+    private router:Router,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.username=this.route.snapshot.params['username']
   this.refreshEmployees();
   }
 
@@ -43,8 +48,17 @@ export class EmployeeManagementComponent implements OnInit {
     )
   }
 
+  updateProfile(){
+    this.employeeService.findEmployeeByEmail(this.username).subscribe(
+      response=>{
+        this.emp=response
+          this.router.navigate([this.emp.email,'employees',this.emp.id])
+      }
+    )
+  }
+
   updateEmployee(id){
-    this.router.navigate(['employees',id])
+    this.router.navigate([this.username,'employees',id])
   }
 
   deleteEmployee(id){

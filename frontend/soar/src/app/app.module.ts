@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeManagementComponent } from './employee-management/employee-management.component';
 import { InventoryManagementComponent } from './inventory-management/inventory-management.component';
+import { InventoryComponent } from './inventory/inventory.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { InventoryManagementComponent } from './inventory-management/inventory-m
     EmployeesComponent,
     EmployeeManagementComponent,
     InventoryManagementComponent,
+    InventoryComponent,
     
   ],
   imports: [

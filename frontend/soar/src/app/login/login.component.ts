@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeDataService } from '../data/service/employee-data.service';
+import { employee } from '../employee-management/employee-management.component';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,10 @@ export class LoginComponent implements OnInit {
   password=''
   invalidLogin= false
   errorMessage=''
+  emp:employee
 
   constructor(
+    private employeeService:EmployeeDataService,
     private route:ActivatedRoute,
     private router:Router
   ) { }
@@ -22,22 +26,17 @@ export class LoginComponent implements OnInit {
   }
 
     handleLogin(){
-      if(this.username==='' )
-      {
-        this.invalidLogin=true
-        this.errorMessage='Enter Username!'
-      }
-      if(this.password==='')
-      {
-        this.invalidLogin=true
-        this.errorMessage='Enter Password!'
-      }
-      if(this.username===''&& this.password===''){
-        this.invalidLogin=true
-        this.errorMessage='invalid Credentials'
-      }
+      this.employeeService.findEmployeeByEmail(this.username).subscribe(
+        response=>{
+          this.emp=response
+          if(this.emp.type==='Employee Admin'&& this.password===this.emp.password){
+            this.router.navigate([this.emp.email,'employeeManagement'])
+          }
+        }
+      )
+      
     }
     register(){
-      this.router.navigate(['employees',-1])
+      this.router.navigate(['newUser','employees',-1])
     }
 }

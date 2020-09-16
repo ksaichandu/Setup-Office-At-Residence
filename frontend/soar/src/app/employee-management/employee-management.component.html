@@ -1,7 +1,9 @@
+<div class="alert alert-success alert-dismissible fade show" style="text-align: center;">Logged in as Employee Admin</div>
 
 <div >
     <h3 style="text-align: center;margin: 10px;color: lightslategray;">Employee Managament</h3>
-    <button routerLink="/employees/-1" class="btn btn-md btn-info pull-right float-right" style="margin-right: 20px; margin-bottom: 5px;" >Add Employee</button>
+    <button routerLink="/{{username}}/employees/-1" class="btn btn-md btn-info pull-right float-right" style="margin-right: 20px; margin-bottom: 5px;" >Add Employee</button>
+    <button  class="btn btn-md btn-info pull-right float-right" style="margin-right: 20px; margin-bottom: 5px;" (click)="updateProfile()" >Update Profile</button>
   </div>
   
   <div class="alert alert-success" *ngIf="message">{{message}}</div>

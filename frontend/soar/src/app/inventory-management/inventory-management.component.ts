@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InventoryDataService} from 'src/app/data/service/inventory-data.service'
 
 export class inventory{
@@ -22,15 +23,18 @@ export class inventory{
 export class InventoryManagementComponent implements OnInit {
   
   myinventory:inventory[]
-  
+  username:string
 
   constructor(
-    private inventoryService:InventoryDataService
+    private inventoryService:InventoryDataService,
+    private router:Router,
+    private route:ActivatedRoute
   ) {
     
    }
 
   ngOnInit(): void {
+    this.username=this.route.snapshot.params['username']
     this.refreshInventory()
   }
 
@@ -41,5 +45,7 @@ export class InventoryManagementComponent implements OnInit {
       }
     )
   }
+
+ 
 
 }

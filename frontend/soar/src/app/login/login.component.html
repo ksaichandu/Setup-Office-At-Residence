@@ -6,8 +6,9 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form (ngSubmit)="!loginForm.invalid && handleLogin()" #loginForm="ngForm" id="login-form" class="form" action="" method="post">
                             <h3 class="text-center info" >Login</h3>
+                            <div class="alert alert-warning" *ngIf="loginForm.dirty && loginForm.invalid" >Enter Valid Credentials !</div>
                             <div class="alert alert-danger" style="padding: 1px;text-align: center;" role="alert" *ngIf="invalidLogin">
                                 {{errorMessage}}
                               </div>
@@ -19,7 +20,7 @@
                                 <label for="password" class="info">Password:
                                     <a routerLink="">Forgot?</a>
                                 </label><br>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" [(ngModel)]="password" minlength="8">
                             </div>
                             
                             <button type="submit" class="btn btn-primary" (click)="handleLogin()">Submit</button>

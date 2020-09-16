@@ -31,5 +31,8 @@ export class EmployeeDataService {
   deleteEmployee(id){
     return this.http.delete(`http://localhost:8080/employees/${id}`)
   }
+  findEmployeeByEmail(email){
+    return this.http.get<employee>(`http://localhost:8080/getemployees/${email}`)
+  }
 
 }

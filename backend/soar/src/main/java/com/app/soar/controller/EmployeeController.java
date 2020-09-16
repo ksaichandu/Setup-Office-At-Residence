@@ -33,6 +33,12 @@ public class EmployeeController {
 		return service.getEmployeeById(id);
 	}
 	
+
+	@GetMapping(path="/getemployees/{email}")
+	public Employee retrieveEmployeeById(@PathVariable String email) {
+		return service.getEmployeeByEmail(email);
+	}
+	
 	@PostMapping(path="/addEmployee")
 	public Employee addEmployee(@RequestBody Employee employee) {
 		return service.saveEmployee(employee);

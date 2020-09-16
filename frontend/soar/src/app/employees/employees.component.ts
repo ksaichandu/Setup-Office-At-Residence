@@ -14,6 +14,7 @@ export class EmployeesComponent implements OnInit {
   id:number
   emp:employee
   message:string
+  username:string
   constructor(
    private employeeService:EmployeeDataService,
    private route:ActivatedRoute,
@@ -22,6 +23,7 @@ export class EmployeesComponent implements OnInit {
 
   ngOnInit(): void {
     this.message=''
+    this.username=this.route.snapshot.params['username']
     this.id=Number(this.route.snapshot.params['id'])
     this.emp =new employee(this.id,'','','Select Designation','')
     if(this.id!=-1){
@@ -37,15 +39,18 @@ export class EmployeesComponent implements OnInit {
     if(this.id===-1){
     this.employeeService.createEmployee(this.emp).subscribe(
       data=>{
+        if(this.username==='newUser')
         this.message="Succesful"
+        else{
+          this.router.navigate([this.username,'employeeManagement'])
+        }
       }
     )
     }
     else{
       this.employeeService.updateEmployee(this.id,this.emp).subscribe(
         response=>{
-          console.log(response)
-          this.router.navigate(['employeeManagement'])
+          this.router.navigate([this.username,'employeeManagement'])
         }
       )
     }

@@ -14,4 +14,8 @@ export class InventoryDataService {
   retrieveAllEmployees(){
     return this.http.get<inventory[]>(`http://localhost:8080/inventory`)
   }
+
+  createInventory(inventory){
+    return this.http.post(`http://localhost:8080/addInventory`,inventory)
+  }
 }
