@@ -50,7 +50,12 @@ export class EmployeesComponent implements OnInit {
     else{
       this.employeeService.updateEmployee(this.id,this.emp).subscribe(
         response=>{
+          if(this.emp.type=="Employee Admin"){
           this.router.navigate([this.username,'employeeManagement'])
+          }
+          if(this.emp.type=="Infrastructure Admin"){
+            this.router.navigate([this.username,'inventoryManagement'])
+          }
         }
       )
     }

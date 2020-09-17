@@ -1,16 +1,19 @@
 <div class="alert alert-success alert-dismissible fade show" style="text-align: center;">Logged in as Infrastructure Admin</div>
- <div routerLink="/{{username}}/inventory/-1" class="btn btn-info pull-right float-right" style="margin: 20px;" >Add Inventory</div>
-<div class="container">    
-    <h2>INVENTORY</h2>
+
+<div routerLink="/{{username}}/inventory/-1" class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" >Add Inventory</div>
+ <div  class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" (click)="updateProfile()">Edit Profile</div>
+<div class="container"> 
+  <h2>INVENTORY</h2>    
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-    <div class="col mb-4"  *ngFor="let inventory of myinventory">
+    <div class="col mb-3"  *ngFor="let inventory of myinventory">
       <div class="card">
         <img [src]="inventory.pathToImage" class="card-img-top" >
         <div class="card-body">
-          <p class="card-text">Name:{{inventory.name}}</p>
-          <p class="card-text">Type:{{inventory.type}}</p>
-          <p class="card-text">Cost:{{inventory.cost}}</p>
-          <p class="card-text">Available:{{inventory.itemCount}}</p>  
+          <p class="card-text">Name:   {{inventory.name}}</p>
+          <p class="card-text">Type:   {{inventory.type}}</p>
+          <p class="card-text">Cost:   {{inventory.cost}}</p>
+          <p class="card-text">Available:      {{inventory.itemCount}}</p> 
+          <button routerLink="/{{username}}/inventory/{{inventory.id}}" class="btn btn-primary">Edit</button> 
         </div>
       </div>
     </div>

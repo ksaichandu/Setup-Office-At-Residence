@@ -38,7 +38,6 @@ export class InventoryComponent implements OnInit {
     if(this.id===-1){
     this.inventoryService.createInventory(this.inv).subscribe(
       data=>{
-        console.log(data)
         this.router.navigate([this.username,'inventoryManagement'])
       }
     )
@@ -46,8 +45,7 @@ export class InventoryComponent implements OnInit {
     else{
       this.inventoryService.updateInventory(this.id,this.inv).subscribe(
         response=>{
-          console.log(response)
-          this.router.navigate(['employeeManagement'])
+          this.router.navigate([this.username,'inventoryManagement'])
         }
       )
     }

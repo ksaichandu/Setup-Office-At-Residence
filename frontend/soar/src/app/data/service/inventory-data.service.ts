@@ -11,11 +11,19 @@ export class InventoryDataService {
     private http:HttpClient
   ) { }
 
-  retrieveAllEmployees(){
+  retrieveAllInventory(){
     return this.http.get<inventory[]>(`http://localhost:8080/inventory`)
   }
 
   createInventory(inventory){
     return this.http.post(`http://localhost:8080/addInventory`,inventory)
+  }
+
+  findInventoryById(id){
+    return this.http.get<inventory>(`http://localhost:8080/inventory/${id}`)
+  }
+
+  updateInventory(id,inventory){
+    return this.http.put(`http://localhost:8080/updateInventory/${id}`,inventory)
   }
 }

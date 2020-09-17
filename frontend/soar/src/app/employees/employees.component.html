@@ -1,6 +1,6 @@
 <div class="alert alert-success" *ngIf="message">Registration Succesful, Please <a routerLink="/login">Login</a> to Continue !</div>
 <article class="card-body mx-auto" style="max-width: 400px;margin-top: 70px;">
-	<h4 class="card-title mt-3 text-center">Create Account</h4>
+	<h4 class="card-title mt-3 text-center">Employee</h4>
 	<div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Enter Valid Credentials !</div>
 	<form (ngSubmit)="!todoForm.invalid && saveEmployee()" #todoForm="ngForm">
 	<div class="form-group input-group">
@@ -35,7 +35,7 @@
     </div> 
                                     
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" > Create Account  </button>
+        <button type="submit" class="btn btn-primary btn-block" > Submit </button>
     </div>    
     <p class="text-center">Have an account? <a  routerLink="/login">Log In</a> </p>                                                                 
 </form>
