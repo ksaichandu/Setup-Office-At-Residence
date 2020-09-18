@@ -1,0 +1,31 @@
+<div class="alert alert-success alert-dismissible fade show" style="text-align: center;">Logged in as Software Developer</div>
+<div class="alert alert-success alert-dismissible fade show" style="text-align: center;" *ngIf="message">{{message}}</div>
+<div  class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" (click)="submitRequest()">Submit Request</div>
+
+ <div  class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" (click)="updateProfile()">Edit Profile</div>
+ <div  routerLink = "/{{username}}/inventoryRequestHistory" class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" >Request History</div>
+<div class="container"> 
+  <h2>INVENTORY</h2>    
+  
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+    <div class="col mb-3"  *ngFor="let inventory of myinventory">
+      <div class="card">
+        <img [src]="inventory.pathToImage" class="card-img-top" >
+        <div class="card-body">
+          <p class="card-text">Name:   {{inventory.name}}</p>
+          <p class="card-text">Type:   {{inventory.type}}</p>
+          <p class="card-text">Cost:   {{inventory.cost}}</p>
+          <p class="card-text">Available:      {{inventory.itemCount}}</p>
+          <button class="btn btn-primary" (click)="addToCart(inventory.id)" >Add</button> 
+          <button class="btn btn-primary" (click)="RemoveFromCart(inventory.id)" >Remove</button> 
+        </div>
+      </div>
+    </div>
+   
+    
+  </div>
+  
+    
+  
+  
+  

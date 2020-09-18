@@ -10,6 +10,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeManagementComponent } from './employee-management/employee-management.component';
 import { InventoryManagementComponent } from './inventory-management/inventory-management.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { InventoryRequestComponent } from './inventory-request/inventory-request.component';
+import { RequestHistoryComponent } from './request-history/request-history.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { InventoryComponent } from './inventory/inventory.component';
     EmployeeManagementComponent,
     InventoryManagementComponent,
     InventoryComponent,
+    InventoryRequestComponent,
+    RequestHistoryComponent,
     
   ],
   imports: [
