@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
           if(this.emp.type==='Software Developer'&& this.password===this.emp.password){
             this.router.navigate([this.emp.email,'inventoryRequest'])
           }
+          if(this.emp.type==='Manager'&& this.password===this.emp.password){
+            this.router.navigate([this.emp.email,'RequestApproval'])
+          }
         }
       )
       

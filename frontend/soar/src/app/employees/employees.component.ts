@@ -56,6 +56,12 @@ export class EmployeesComponent implements OnInit {
           if(this.emp.type=="Infrastructure Admin"){
             this.router.navigate([this.username,'inventoryManagement'])
           }
+          if(this.emp.type=="Software Developer"){
+            this.router.navigate([this.username,'inventoryRequest'])
+          }
+          if(this.emp.type=="Manager"){
+            this.router.navigate([this.username,'RequestApproval'])
+          }
         }
       )
     }

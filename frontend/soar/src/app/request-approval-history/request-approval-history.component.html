@@ -1,0 +1,27 @@
+
+<div>
+    <h3 style="text-align: center;margin: 10px;color: lightslategray;">Request Approval History</h3>
+</div>
+
+
+
+<table class="table">
+    <thead class=" text-white" style="background-color: lightslategrey;text-align: center;">
+        <tr>
+            <th scope="col">Developer Id</th> 
+            <th scope="col">Inventory Id</th>
+            <th scope="col">Developer Remark</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of req" style="text-align: center;">
+            <td>{{r.developer_id}}</td>
+            <td>{{r.inventory_id}}</td>
+            <td>{{r.developer_remark}}</td>
+            <td>{{r.status}}</td>
+            <td>{{r.date}}</td>        
+        </tr>
+    </tbody>
+</table>

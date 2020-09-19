@@ -12,6 +12,8 @@ import { InventoryManagementComponent } from './inventory-management/inventory-m
 import { InventoryComponent } from './inventory/inventory.component';
 import { InventoryRequestComponent } from './inventory-request/inventory-request.component';
 import { RequestHistoryComponent } from './request-history/request-history.component';
+import { RequestApprovalComponent } from './request-approval/request-approval.component';
+import { RequestApprovalHistoryComponent } from './request-approval-history/request-approval-history.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { RequestHistoryComponent } from './request-history/request-history.compo
     InventoryComponent,
     InventoryRequestComponent,
     RequestHistoryComponent,
+    RequestApprovalComponent,
+    RequestApprovalHistoryComponent,
     
   ],
   imports: [

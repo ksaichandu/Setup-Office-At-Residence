@@ -7,6 +7,8 @@ import { InventoryManagementComponent } from './inventory-management/inventory-m
 import { InventoryRequestComponent } from './inventory-request/inventory-request.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
+import { RequestApprovalHistoryComponent } from './request-approval-history/request-approval-history.component';
+import { RequestApprovalComponent } from './request-approval/request-approval.component';
 import {RequestHistoryComponent} from './request-history/request-history.component'
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path:':username/inventory/:id',component:InventoryComponent},
   {path:':username/inventoryRequest',component:InventoryRequestComponent},
   {path:':username/inventoryRequestHistory',component:RequestHistoryComponent},
+  {path:':username/RequestApproval',component:RequestApprovalComponent},
+  {path:':username/RequestApprovalHistory',component:RequestApprovalHistoryComponent},
   {path:'**',component:LoginComponent}
 ];
 

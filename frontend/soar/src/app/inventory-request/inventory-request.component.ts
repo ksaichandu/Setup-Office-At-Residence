@@ -33,8 +33,7 @@ export class InventoryRequestComponent implements OnInit {
   myrequest: request[]
   message: string
   already:string
-  i:number
-  index:number
+  filtReq:request[]
 
   constructor(
     private inventoryService: InventoryDataService,
@@ -95,15 +94,10 @@ export class InventoryRequestComponent implements OnInit {
       }
     }
     if(this.already==='exists'){
+      this.filtReq=[]
       this.req = new request(-1, this.emp.id, id, '', 'In Progress', '', new Date)
-      this.i=0
-      for(let r of this.myrequest){
-        if(r===this.req){
-          this.index=this.i
-        }
-        this.i++
-      }
-      this.myrequest.splice(this.index-1,1)
+     this.filtReq =this.myrequest.filter((item)=>item.inventory_id!=this.req.inventory_id)
+     this.myrequest=this.filtReq
       console.log(this.myrequest)
       this.already=''
       }
