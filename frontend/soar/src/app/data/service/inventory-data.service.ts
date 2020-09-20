@@ -26,4 +26,6 @@ export class InventoryDataService {
   updateInventory(id,inventory){
     return this.http.put(`http://localhost:8080/updateInventory/${id}`,inventory)
   }
+
+ 
 }

@@ -1,6 +1,7 @@
 <div>
     <h3 style="text-align: center;margin: 10px;color: lightslategray;">Request Approval</h3>
 </div>
+<div class="alert alert-success" *ngIf="message" style="text-align: center;">{{message}}</div>
 <div  class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" (click)="updateProfile()">Edit Profile</div>
 <div  routerLink = "/{{username}}/RequestApprovalHistory" class="btn btn-md btn-info pull-right float-right" style="margin: 20px;" >Request Approval History</div>
 
@@ -24,8 +25,8 @@
             <td>{{r.developer_remark}}</td>
             <td>{{r.status}}</td>
             <td>{{r.date}}</td>
-            <td><button class="btn btn-sm btn-primary" >Approve</button></td>       
-          <td><button class="btn btn-sm btn-danger"  >Reject</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="approve(r.inventory_id,r.request_id)" >Approve</button></td>       
+          <td><button class="btn btn-sm btn-danger" (click)="reject(r.request_id)" >Reject</button></td>
         
         </tr>
     </tbody>

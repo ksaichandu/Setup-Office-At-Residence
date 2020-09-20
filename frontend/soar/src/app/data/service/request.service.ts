@@ -17,4 +17,10 @@ export class RequestService {
   retrieveAllRequests(){
     return this.http.get<request[]>(`http://localhost:8080/Requests`)
   }
+  findById(id){
+    return this.http.get<request>(`http://localhost:8080/Requests/${id}`)
+  }
+  updateRequest(id,request){
+    return this.http.put(`http://localhost:8080/updateRequest/${id}`,request)
+  }
 }

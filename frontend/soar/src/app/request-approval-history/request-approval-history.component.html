@@ -8,6 +8,7 @@
 <table class="table">
     <thead class=" text-white" style="background-color: lightslategrey;text-align: center;">
         <tr>
+            <th scope="col">Request Id</th>
             <th scope="col">Developer Id</th> 
             <th scope="col">Inventory Id</th>
             <th scope="col">Developer Remark</th>
@@ -17,6 +18,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let r of req" style="text-align: center;">
+            <td>{{r.request_id}}</td>
             <td>{{r.developer_id}}</td>
             <td>{{r.inventory_id}}</td>
             <td>{{r.developer_remark}}</td>

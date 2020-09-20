@@ -14,6 +14,7 @@ export class RequestApprovalHistoryComponent implements OnInit {
   username: string
   emp: employee
   req: request[]
+  filtReq=[]
   constructor(
     private employeeService: EmployeeDataService,
     private service: RequestService,
@@ -25,6 +26,7 @@ export class RequestApprovalHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.username = this.route.snapshot.params['username']
     this.req = []
+    this.filtReq=[]
     this.employeeService.findEmployeeByEmail(this.username).subscribe(
       response => {
         this.emp = response
@@ -37,10 +39,13 @@ export class RequestApprovalHistoryComponent implements OnInit {
     this.service.retrieveAllRequests().subscribe(
       response => {
         this.req = response
+        this.filtReq =this.req.filter((item)=>item.status!=="In Progress")
+        this.req=this.filtReq
         console.log(response)
 
       }
     )
   }
+
 
 }
