@@ -15,6 +15,9 @@ export class RequestApprovalHistoryComponent implements OnInit {
   emp: employee
   req: request[]
   filtReq=[]
+  total:number
+  pending:number
+completed :number
   constructor(
     private employeeService: EmployeeDataService,
     private service: RequestService,
@@ -39,8 +42,11 @@ export class RequestApprovalHistoryComponent implements OnInit {
     this.service.retrieveAllRequests().subscribe(
       response => {
         this.req = response
+        this.total=this.req.length
         this.filtReq =this.req.filter((item)=>item.status!=="In Progress")
         this.req=this.filtReq
+        this.completed=this.req.length
+        this.pending= this.total-this.completed
         console.log(response)
 
       }
